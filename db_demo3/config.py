@@ -7,7 +7,7 @@ SECRET_KEY = os.urandom(24)
 
 HOSTNAME = '127.0.0.1'
 PORT = '3306'
-DATABASE = 'db_demo1'
+DATABASE = 'db_demo3'
 USERNAME = 'root'
 PASSWORD = 'caomu888'
 DB_URI = 'mysql://%s:%s@%s/%s' % (USERNAME, PASSWORD, HOSTNAME, DATABASE)
