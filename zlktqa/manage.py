@@ -3,8 +3,9 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from zlktqa import app
 from exts import db
+from models import User
 
-manager = Mnager(app)
+manager = Manager(app)
 
 # 使用Migrate绑定app和db
 migrate = Migrate(app, db)
