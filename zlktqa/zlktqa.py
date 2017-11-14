@@ -1,5 +1,5 @@
 #encoding: utf-8
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import config
 from models import User
 from exts import db
@@ -12,12 +12,22 @@ db.init_app(app)
 def index():
 	return render_template('index.html')
 
+
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
 	if request.method == 'GET':
 		return render_template('login.html')
 	else:
-		pass
+		tel = request.form.get('telephone')
+		pas = request.form.get('password')
+		user = User.query.filter(User.telephone == tel, User.password == pas).first()
+		if user:
+			session['user_id'] = user.id
+			session.permanent = True
+			return redirect(url_for('index'))
+		else:
+			return '手机或密码错误！！'
+
 
 @app.route('/regist/', methods=['GET', 'POST'])
 def regist():
