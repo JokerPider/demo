@@ -1,5 +1,4 @@
 #coding: utf-8
-
 from exts import db
 
 class User(db.Model):
@@ -8,3 +7,4 @@ class User(db.Model):
 	telephone = db.Column(db.String(11), nullable=False)
 	username = db.Column(db.String(50), nullable=False)
 	password = db.Column(db.String(100), nullable=False)
+	email = db.Column(db.String(30))
